@@ -1,0 +1,41 @@
+
+.nav {
+  position: fixed;
+  height: 10vh;
+  padding-left: 10%;
+  width: 100%;
+  background-color: rgb(43, 43, 250);
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.section {
+  margin-top: 12vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid red;
+  width: 60%;
+}
+
+.countrySection {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.eachCountry {
+  margin-top: 12vh;
+  max-height: 25%;
+  border: 1px solid blue;
+}
+
+.country {
+  border: 1px solid rgb(53, 53, 53);
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,46 +1,46 @@
-import { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, Outlet } from 'react-router-dom';
 
 import CountriesList from './component/CountriesList';
 import Navbar from './component/Navbar';
 import countriesDb from './countries.json';
+import './component/country.css'
 
 function App() {
   const [allCountries, setCountries] = useState(countriesDb);
+  const [nation, setNation] = useState({})
+
+  const thisCountry = (country) => {
+    setNation(country)
+  }
 
   return (
     <div>
-      <nav>
+      <nav class="nav">
         <Navbar />
       </nav>
-      <section>
-        <div>
+      <div class="countrySection">
+        <div class="eachCountry">
           {allCountries.map((country, i) => {
             return (
-              <CountriesList
-                key={i}
-                country={country}
-                name={country.name.common}
-              />
+              <div class="country">
+                  <CountriesList
+                    key={i}
+                    country={country}
+                    name={country.name.common}
+                    flag={country.alpha2Code}
+                    currentCountry={thisCountry}
+                  />
+              </div>
             );
           })}
         </div>
-        <Outlet />
-      </section>
+        <section class="section">
+          <Outlet country={nation.name}/>
+        </section>
+      </div>
     </div>
   );
 }
 
 export default App;
-
-/* 
-    <div>
-      <nav>
-        <Navbar />
-        <Link to="/countryList">List</Link>
-        <br></br>
-        <Link to="/countryDetails">Detail</Link>
-      </nav>
-      <Outlet />
-    </div>
-*/

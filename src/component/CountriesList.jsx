@@ -1,14 +1,23 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-function CountriesList({ country, name }) {
+function CountriesList({ country, name, flag, currentCountry }) {
+
+  const flagImg = `https://flagpedia.net/data/flags/icon/72x54/${flag.toLowerCase()}.png`;
+
+  const thisCountry = () => {
+    currentCountry(country)
+  }
+
   return (
-    <>
-      <Link to="/countryDetails" country={country}>
+
+    <div>
+      <Link to="/countryDetails" onClick={thisCountry}>
         <div>
+          <img src={flagImg}></img>
           <h1>{name}</h1>
         </div>
       </Link>
-    </>
+    </div>
   );
 }
 
