@@ -4,17 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import CountriesList from './routes/CountriesList';
-import CountryDetails from './routes/CountryDetails';
+import CountriesList from './component/CountriesList';
+import CountryDetails from './component/CountryDetails';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
+          <Route path="countryList" element={<CountriesList />} />
           <Route path="countryDetails" element={<CountryDetails />} />
         </Route>
-        <Route path="countryList" element={<CountriesList />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
