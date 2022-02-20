@@ -2,7 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import countriesDb from '../countries.json'
 
 function CountryDetails() {
-
+  
   const { countryId } = useParams();
   const thisCountry = countriesDb.find((country) => {
     if (country.alpha3Code === countryId) {
