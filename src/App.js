@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 import CountriesList from './component/CountriesList';
 import Navbar from './component/Navbar';
@@ -8,12 +8,13 @@ import './component/country.css'
 
 function App() {
   const [allCountries, setCountries] = useState(countriesDb);
-  const [nation, setNation] = useState({})
+ /*  
+  const [country, setCountry] = useState({})
 
   const thisCountry = (country) => {
-    setNation(country)
+    setCountry(country)
   }
-
+ */
   return (
     <div>
       <nav class="nav">
@@ -29,14 +30,15 @@ function App() {
                     country={country}
                     name={country.name.common}
                     flag={country.alpha2Code}
-                    currentCountry={thisCountry}
+                    countryCode={country.alpha3Code}
+                    //currentCountry={thisCountry}
                   />
               </div>
             );
           })}
         </div>
         <section class="section">
-          <Outlet country={nation.name}/>
+          <Outlet /* quiria pasar el estado como prop pero no puedo */ />
         </section>
       </div>
     </div>

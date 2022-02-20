@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function CountriesList({ country, name, flag, currentCountry }) {
+function CountriesList({ country, name, flag, currentCountry, countryCode }) {
 
   const flagImg = `https://flagpedia.net/data/flags/icon/72x54/${flag.toLowerCase()}.png`;
 
@@ -9,9 +9,8 @@ function CountriesList({ country, name, flag, currentCountry }) {
   }
 
   return (
-
     <div>
-      <Link to="/countryDetails" onClick={thisCountry}>
+      <Link to={`/${countryCode}`} onClick={thisCountry}>
         <div>
           <img src={flagImg}></img>
           <h1>{name}</h1>

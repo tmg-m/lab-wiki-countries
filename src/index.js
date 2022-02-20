@@ -12,8 +12,8 @@ ReactDOM.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route path="countryList" element={<CountriesList />} />
-          <Route path="countryDetails" element={<CountryDetails />} />
+          <Route path="/countryList" element={<CountriesList />} />
+          <Route path="/:countryId" element={<CountryDetails />} />
         </Route>
       </Routes>
     </BrowserRouter>
